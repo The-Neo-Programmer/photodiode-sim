@@ -4,35 +4,40 @@ import { motion, MotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 
 export function Scene15Closing({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Fade in at the very end 0.93 to 1.0
-  const opacity = useTransform(scrollYProgress, [0.93, 0.98, 1], [0, 1, 1]);
-  const y = useTransform(scrollYProgress, [0.93, 1], [50, 0]);
+  // Fade in only after Scene14 clears (starts at 0.97)
+  const opacity = useTransform(scrollYProgress, [0.97, 0.99, 1.0], [0, 1, 1]);
+  const y = useTransform(scrollYProgress, [0.97, 1.0], [30, 0]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   return (
     <motion.div 
       style={{ opacity, y, display }}
-      className="absolute inset-0 flex-col items-center justify-center text-center px-6 pointer-events-none"
+      className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pointer-events-none"
     >
-      <div className="mb-8 opacity-90 drop-shadow-2xl">
+      {/* Ambient glow */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-80 h-80 rounded-full bg-[var(--color-accent)]/6 blur-[100px] animate-pulse" />
+      </div>
+
+      <div className="mb-8 drop-shadow-2xl">
         <Image 
           src="/Luma-icon.png" 
           alt="Luma Identity" 
           width={80} 
           height={80} 
           sizes="80px"
-          className="mx-auto"
+          className="mx-auto drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]"
         />
       </div>
-      <h1 className="text-4xl md:text-6xl font-light tracking-tight text-white mb-6 font-[var(--font-sans)] drop-shadow-lg">
+      <h1 className="text-5xl md:text-7xl font-light tracking-tight text-white mb-6 font-[var(--font-sans)]" style={{ textShadow: "0 0 40px rgba(255,255,255,0.15)" }}>
         Luma
       </h1>
-      <p className="text-base md:text-lg text-white/50 font-light max-w-xl mx-auto leading-relaxed font-[var(--font-sans)]">
-        Incident light generates charge carriers in a reverse-biased junction, 
-        producing a measurable current used for detection.
+      <p className="text-base md:text-lg text-white/60 font-light max-w-xl mx-auto leading-relaxed font-[var(--font-sans)]">
+        Light becomes current. Photons become information. <br />That bridge is the photodiode.
       </p>
       
-      <div className="mt-20 w-[1px] h-16 bg-gradient-to-b from-white/20 to-transparent mx-auto" />
+      <div className="mt-16 w-[1px] h-12 bg-gradient-to-b from-white/20 to-transparent mx-auto" />
+      <p className="text-xs text-white/20 mt-6 tracking-[0.4em] uppercase font-mono">End of Simulation</p>
     </motion.div>
   );
 }

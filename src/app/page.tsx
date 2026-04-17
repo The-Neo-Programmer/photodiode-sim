@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { useScroll } from "framer-motion";
 import { AudioToggle } from "@/components/AudioToggle";
+import { AutoScroll } from "@/components/AutoScroll";
 import { SceneController } from "@/components/scenes/SceneController";
 
 export default function LumaApp() {
@@ -17,15 +18,15 @@ export default function LumaApp() {
   return (
     <>
       {/* 
-        15 scenes -> 1500vh gives each scene 1 full screen of scrolling space.
+        16 scenes -> 1600vh gives each scene 1 full screen of scrolling space.
       */}
-      <div ref={containerRef} className="h-[1500vh] w-full relative bg-black">
+      <div ref={containerRef} className="h-[1600vh] w-full relative bg-[#060A10]">
         
         {/* Fixed cinematic viewport */}
         <div className="fixed inset-0 w-full h-full overflow-hidden flex items-center justify-center">
           
-          {/* Base Environment */}
-          <div className="absolute inset-0 bg-black bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-neutral-900/40 via-black to-black opacity-60 pointer-events-none" />
+          {/* Base Environment (Brightened specifically from V2) */}
+          <div className="absolute inset-0 bg-[#060A10] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/10 via-[#060A10] to-[#040608] opacity-100 pointer-events-none" />
 
           {/* Core App Renderer */}
           <SceneController scrollYProgress={scrollYProgress} />
@@ -33,6 +34,7 @@ export default function LumaApp() {
         </div>
       </div>
 
+      <AutoScroll />
       <AudioToggle />
     </>
   );

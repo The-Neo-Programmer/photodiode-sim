@@ -3,46 +3,85 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 export function Scene14RealWorld({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Visible 0.86 to 0.93
-  const opacity = useTransform(scrollYProgress, [0.86, 0.88, 0.91, 0.93], [0, 1, 1, 0]);
+  // Visible 0.93 to 1.00
+  const opacity = useTransform(scrollYProgress, [0.93, 0.95, 0.98, 1.0], [0, 1, 1, 0]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
-  return (
-    <motion.div 
-      style={{ opacity, display }}
-      className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6"
-    >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto w-full mb-16">
-        <div className="flex flex-col items-center text-center gap-4 border border-white/5 bg-white/[0.01] p-6 rounded-2xl backdrop-blur-sm">
-           <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center mb-2">
-             <div className="w-4 h-4 bg-[var(--color-accent)]/80 rounded-full blur-[2px]" />
-           </div>
-           <h3 className="text-sm text-white/80 tracking-wide">Fiber Optics</h3>
-           <p className="text-xs text-white/40">High-speed data reception in internet backbone networks.</p>
-        </div>
-        <div className="flex flex-col items-center text-center gap-4 border border-white/5 bg-white/[0.01] p-6 rounded-2xl backdrop-blur-sm translate-y-0 md:translate-y-8">
-           <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center mb-2">
-             <div className="w-4 h-4 bg-red-500/80 rounded-full blur-[2px]" />
-           </div>
-           <h3 className="text-sm text-white/80 tracking-wide">IR Receivers</h3>
-           <p className="text-xs text-white/40">Detecting infrared pulses from remote controls and sensors.</p>
-        </div>
-        <div className="flex flex-col items-center text-center gap-4 border border-white/5 bg-white/[0.01] p-6 rounded-2xl backdrop-blur-sm">
-           <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center mb-2">
-             <div className="w-6 h-[1px] bg-white/50 rotate-45" />
-           </div>
-           <h3 className="text-sm text-white/80 tracking-wide">Smoke Detectors</h3>
-           <p className="text-xs text-white/40">Sensing light scattering caused by airborne particles.</p>
-        </div>
-      </div>
+  const applications = [
+    {
+      icon: "🌐",
+      title: "Fiber Optics",
+      desc: "High-speed data reception in internet backbone networks.",
+      color: "#7CDFFF",
+    },
+    {
+      icon: "📡",
+      title: "IR Receivers",
+      desc: "Detecting infrared pulses from remote controls and proximity sensors.",
+      color: "#FF9A7C",
+    },
+    {
+      icon: "🔍",
+      title: "Smoke Detectors",
+      desc: "Sensing light scattering caused by airborne smoke particles.",
+      color: "#B0FFC8",
+    },
+    {
+      icon: "🔬",
+      title: "Medical Imaging",
+      desc: "Light-based pulse oximeters and fluorescence microscopy.",
+      color: "#FFD97C",
+    },
+    {
+      icon: "☀️",
+      title: "Solar Cells",
+      desc: "Large-area photodiode arrays harvesting energy from sunlight.",
+      color: "#FFCA28",
+    },
+    {
+      icon: "📸",
+      title: "Camera Sensors",
+      desc: "CMOS / CCD image sensors that power every modern digital camera.",
+      color: "#CF9FFF",
+    },
+  ];
 
-      <div className="text-center w-full max-w-2xl mx-auto mt-4">
-        <h2 className="text-xl md:text-2xl text-white font-light tracking-wide mb-3">Real-World Application</h2>
-        <p className="text-white/50 text-base leading-relaxed">
-          From optical communication to ambient light sensing, photodiodes form the vital bridge between photons and electronics.
+  return (
+    <motion.div
+      style={{ opacity, display }}
+      className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-8"
+    >
+      {/* Title at strict top */}
+      <div className="text-center mb-10 flex-shrink-0">
+        <p className="text-[11px] tracking-[0.4em] uppercase text-white/30 font-mono mb-3">
+          Chapter 6 — Impact
+        </p>
+        <h2 className="text-3xl md:text-4xl text-white font-light tracking-wide">
+          Real-World Applications
+        </h2>
+        <p className="text-white/50 text-sm mt-3 max-w-lg mx-auto leading-relaxed">
+          From optical communication to life-saving diagnostics, photodiodes bridge the world of light and electronics.
         </p>
       </div>
 
+      {/* Card grid strictly below the title */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto w-full">
+        {applications.map((app) => (
+          <div
+            key={app.title}
+            className="flex flex-col items-center text-center gap-3 border border-white/8 bg-white/[0.03] p-5 rounded-2xl backdrop-blur-sm"
+          >
+            <div
+              className="w-12 h-12 rounded-full flex items-center justify-center text-2xl"
+              style={{ background: `${app.color}15`, boxShadow: `0 0 20px ${app.color}30` }}
+            >
+              {app.icon}
+            </div>
+            <h3 className="text-sm text-white/90 tracking-wide font-medium">{app.title}</h3>
+            <p className="text-xs text-white/40 leading-relaxed">{app.desc}</p>
+          </div>
+        ))}
+      </div>
     </motion.div>
   );
 }

@@ -3,55 +3,89 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 export function Scene13OpticalDetection({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Visible 0.80 to 0.87
-  const opacity = useTransform(scrollYProgress, [0.80, 0.82, 0.85, 0.87], [0, 1, 1, 0]);
+  // Visible 0.87 to 0.93
+  const opacity = useTransform(scrollYProgress, [0.87, 0.89, 0.91, 0.93], [0, 1, 1, 0]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   return (
-    <motion.div 
+    <motion.div
       style={{ opacity, display }}
-      className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6"
+      className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-8"
     >
-      <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-2xl gap-8 mb-16">
-        {/* Optical Input */}
-        <div className="flex-1 flex flex-col items-center gap-4 w-full">
-          <span className="text-[10px] text-[var(--color-accent)] uppercase tracking-widest font-mono">Optical Input</span>
-          <div className="h-16 w-full border-b border-white/10 flex items-center justify-around overflow-hidden px-4">
-               <motion.div animate={{ opacity: [1, 0, 1] }} transition={{ duration: 1, repeat: Infinity, times: [0, 0.5, 1] }} className="w-8 h-8 rounded-full bg-[var(--color-accent)] blur-sm" />
-               <motion.div animate={{ opacity: [1, 0, 1] }} transition={{ duration: 1, repeat: Infinity, delay: 0.2, times: [0, 0.5, 1] }} className="w-8 h-8 rounded-full bg-[var(--color-accent)] blur-sm" />
-               <motion.div animate={{ opacity: [1, 0, 1] }} transition={{ duration: 1, repeat: Infinity, delay: 0.4, times: [0, 0.5, 1] }} className="w-8 h-8 rounded-full bg-[var(--color-accent)] blur-sm" />
-          </div>
-        </div>
-
-        <div className="text-white/20 px-4 mt-8 md:mt-0">→</div>
-
-        {/* Electrical Output Trace */}
-        <div className="flex-1 flex flex-col items-center gap-4 w-full">
-          <span className="text-[10px] text-white/50 uppercase tracking-widest font-mono">Electrical Trace</span>
-          <div className="h-16 w-full border border-white/5 bg-white/[0.02] rounded flex items-center justify-center overflow-hidden">
-                <svg width="100%" height="100%" preserveAspectRatio="none" className="stroke-[var(--color-accent)]/80 stroke-[2px] fill-transparent">
-                  <motion.path 
-                    d="M 0 32 L 20 32 L 20 8 L 40 8 L 40 32 L 60 32 L 60 8 L 80 8 L 80 32 L 100 32"
-                    vectorEffect="non-scaling-stroke"
-                    animate={{ x: [0, -40] }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                  />
-                  <motion.path 
-                    d="M 100 32 L 120 32 L 120 8 L 140 8 L 140 32 L 160 32 L 160 8 L 180 8 L 180 32 L 200 32"
-                    vectorEffect="non-scaling-stroke"
-                    animate={{ x: [0, -40] }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                  />
-                </svg>
-          </div>
-        </div>
+      {/* Title */}
+      <div className="text-center mb-10">
+        <p className="text-[11px] tracking-[0.4em] uppercase text-[var(--color-accent)]/60 font-mono mb-3">Chapter 5 — Output</p>
+        <h2 className="text-2xl md:text-3xl text-white font-light tracking-wide mb-3">Optical Signal Detection</h2>
+        <p className="text-white/70 text-sm max-w-lg leading-relaxed">
+          As light pulses on and off, the photodiode instantly produces a corresponding electrical square wave — perfectly replicating the optical bit pattern.
+        </p>
       </div>
 
-      <div className="text-center w-full max-w-2xl mx-auto">
-        <h2 className="text-xl md:text-2xl text-[var(--color-accent)] font-light tracking-wide mb-3">Signal Detection</h2>
-        <p className="text-white/50 text-base leading-relaxed">
-          Pulsed optical data enters the device, and the precisely corresponding depletion physics convert it instantly into a readable electrical square wave.
-        </p>
+      {/* Side-by-side signals */}
+      <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-3xl gap-8">
+
+        {/* Optical Input */}
+        <div className="flex-1 w-full flex flex-col gap-3">
+          <span className="text-[10px] text-[var(--color-accent)]/70 uppercase tracking-widest font-mono text-center">Optical Input (Light)</span>
+          <div className="h-20 w-full border border-white/10 bg-[#050810] rounded-xl relative overflow-hidden flex items-center">
+            <svg width="100%" height="100%" preserveAspectRatio="none" className="overflow-visible">
+              <motion.path
+                d="M 0 40 L 20 40 L 20 10 L 40 10 L 40 40 L 60 40 L 60 10 L 80 10 L 80 40 L 100 40"
+                stroke="rgba(255,215,100,0.9)"
+                strokeWidth="2.5"
+                fill="none"
+                vectorEffect="non-scaling-stroke"
+                animate={{ x: [0, -40] }}
+                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              />
+              <motion.path
+                d="M 100 40 L 120 40 L 120 10 L 140 10 L 140 40 L 160 40 L 160 10 L 180 10 L 180 40 L 200 40"
+                stroke="rgba(255,215,100,0.9)"
+                strokeWidth="2.5"
+                fill="none"
+                vectorEffect="non-scaling-stroke"
+                animate={{ x: [0, -40] }}
+                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              />
+            </svg>
+            {/* Glow when high */}
+            <motion.div
+              className="absolute inset-0 bg-[#FFD964]/10"
+              animate={{ opacity: [0, 1, 0] }}
+              transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 0.5 }}
+            />
+          </div>
+        </div>
+
+        {/* Arrow */}
+        <div className="text-white/30 text-3xl font-light flex-shrink-0 mt-6">→</div>
+
+        {/* Electrical Output */}
+        <div className="flex-1 w-full flex flex-col gap-3">
+          <span className="text-[10px] text-[var(--color-accent)]/70 uppercase tracking-widest font-mono text-center">Electrical Output (Current)</span>
+          <div className="h-20 w-full border border-[var(--color-accent)]/20 bg-[#050810] rounded-xl relative overflow-hidden flex items-center shadow-[0_0_20px_rgba(124,220,255,0.06)]">
+            <svg width="100%" height="100%" preserveAspectRatio="none" className="overflow-visible">
+              <motion.path
+                d="M 0 40 L 20 40 L 20 10 L 40 10 L 40 40 L 60 40 L 60 10 L 80 10 L 80 40 L 100 40"
+                stroke="rgba(124,220,255,0.9)"
+                strokeWidth="2.5"
+                fill="none"
+                vectorEffect="non-scaling-stroke"
+                animate={{ x: [0, -40] }}
+                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              />
+              <motion.path
+                d="M 100 40 L 120 40 L 120 10 L 140 10 L 140 40 L 160 40 L 160 10 L 180 10 L 180 40 L 200 40"
+                stroke="rgba(124,220,255,0.9)"
+                strokeWidth="2.5"
+                fill="none"
+                vectorEffect="non-scaling-stroke"
+                animate={{ x: [0, -40] }}
+                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              />
+            </svg>
+          </div>
+        </div>
       </div>
     </motion.div>
   );

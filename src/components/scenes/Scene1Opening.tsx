@@ -4,36 +4,66 @@ import { motion, MotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 
 export function Scene1Opening({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Scene 1 fades out quickly (15 scenes total, 1st scene ends around 0.06)
+  // Scene 1 fades out quickly (16 scenes total, 1st scene ends around 0.06)
   const opacity = useTransform(scrollYProgress, [0, 0.04, 0.06], [1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.06], [0, -100]);
-  const scale = useTransform(scrollYProgress, [0, 0.06], [1, 1.1]);
-  
-  // Guarantee it doesn't linger in DOM invisibly blocking things
+  const y = useTransform(scrollYProgress, [0, 0.06], [0, -60]);
+  const scale = useTransform(scrollYProgress, [0, 0.06], [1, 1.08]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   return (
     <motion.div 
       style={{ opacity, y, scale, display }}
-      className="absolute inset-0 flex-col items-center justify-center text-center px-6 pointer-events-none"
+      className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pointer-events-none"
     >
-      <div className="mb-8 opacity-90 drop-shadow-2xl">
+      {/* Ambient particle glow behind logo */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-96 h-96 rounded-full bg-[var(--color-accent)]/5 blur-[80px] animate-pulse" />
+      </div>
+
+      <motion.div 
+        className="mb-8 drop-shadow-2xl"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+      >
         <Image 
           src="/Luma-icon.png" 
           alt="Luma Identity" 
-          width={80} 
-          height={80} 
-          sizes="80px"
+          width={88} 
+          height={88} 
+          sizes="88px"
           priority
-          className="mx-auto"
+          className="mx-auto drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]"
         />
-      </div>
-      <h1 className="text-6xl md:text-8xl font-light tracking-tight text-white mb-6 font-[var(--font-sans)] drop-shadow-lg">
+      </motion.div>
+
+      <motion.h1 
+        className="text-7xl md:text-9xl font-light tracking-tight text-white mb-6 font-[var(--font-sans)]"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.4, ease: "easeOut", delay: 0.3 }}
+        style={{ textShadow: "0 0 60px rgba(255,255,255,0.1)" }}
+      >
         Luma
-      </h1>
-      <p className="text-lg md:text-xl text-white/60 font-light max-w-xl mx-auto leading-relaxed font-[var(--font-sans)]">
-        How a photodiode converts incident light <br className="hidden md:block"/> into an electrical signal.
-      </p>
+      </motion.h1>
+
+      <motion.p 
+        className="text-lg md:text-2xl text-white/70 font-light max-w-xl mx-auto leading-relaxed font-[var(--font-sans)]"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.4, ease: "easeOut", delay: 0.6 }}
+      >
+        A cinematic, scroll-driven exploration <br className="hidden md:block"/>of semiconductor physics.
+      </motion.p>
+
+      <motion.p
+        className="text-sm text-white/30 mt-12 tracking-[0.3em] uppercase font-mono"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, ease: "easeOut", delay: 1.5 }}
+      >
+        Scroll to begin
+      </motion.p>
     </motion.div>
   );
 }
