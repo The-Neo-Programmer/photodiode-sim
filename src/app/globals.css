@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #e5e5e5;
+  --accent: #e2f1ff; /* subtle cool white/blue accent for light interactions */
+  --accent-muted: #2a3a4c;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
+  --font-sans: "Söhne", "Sohne", var(--font-inter), sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  /* Söhne is priority if installed locally by the user, else Inter */
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base resets for a premium feel */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Scrollbar hiding for seamless cinematic feel */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+}

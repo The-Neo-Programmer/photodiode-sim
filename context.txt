@@ -1,0 +1,548 @@
+=======================================================================================================================================
+
+Context 1:
+
+# LUMA — MASTER CONTEXT FILE
+
+## Project identity
+
+Build a premium, cinematic, minimalist educational web app called **Luma** about photodiodes. The project must feel like a professional technology explainer demo made by a high-end product company, not a school project website. It must be deployable on Vercel and built with a modern frontend stack.
+
+This is a **demo-first interactive web app**, not a full lab simulator. The goal is to explain the concept of a photodiode visually, intuitively, and beautifully, while remaining scientifically accurate enough for a CBSE Class 12 school project with a slight engineering-level extension.
+
+The visual tone is:
+- academic and polished
+- premium and minimal
+- documentary / tech-explainer
+- subtly futuristic
+- Apple-like cleanliness, but not a copy
+- no clutter, no fake sci-fi, no maximalism
+
+The entire experience should feel like one cohesive drifting environment. There must be no obvious “section blocks,” no generic landing-page card layouts, and no abrupt transitions between pages. Every scene should blend into the next as if the camera is traveling through one continuous digital film.
+
+---
+
+## Educational target
+
+Primary audience:
+- CBSE Class 12 examiner / teacher
+- classmates
+- general public with curiosity about science
+
+Conceptual depth:
+- centered on CBSE Class 12 semiconductor electronics / optoelectronic devices
+- explained mainly at Class 11–12 level
+- very lightly extended toward early engineering understanding
+- clarity and intuition first, scientific correctness second, but never scientifically wrong
+
+The project should explain:
+1. What a photodiode is
+2. Why it is reverse biased
+3. How photons generate electron-hole pairs
+4. What the depletion region does
+5. How incident light changes photocurrent
+6. What dark current is
+7. How a photodiode detects optical signals
+8. Where photodiodes are used in real life
+
+CBSE-aligned facts to preserve:
+- A photodiode is a light-sensitive p-n junction device used to detect optical signals
+- It is typically operated in reverse bias
+- Current changes with light intensity
+- It belongs under optoelectronic devices in semiconductor electronics
+
+Engineering-level nuance to include lightly:
+- reverse bias widens depletion region and improves speed
+- dark current exists even in the absence of light
+- photocurrent is approximately proportional to irradiance in the educational operating range
+- PIN photodiodes are faster / common in higher-performance applications
+
+---
+
+## Experience philosophy
+
+Think of the whole project as a **tech explainer film rendered as an interactive web app**.
+
+This is not:
+- a dashboard
+- a card-based educational landing page
+- a cluttered simulation tool
+- a school fair project with colorful blocks
+- a generic “three feature cards + graph + CTA” layout
+
+This is:
+- a guided visual narrative
+- a flowing scientific demo
+- a premium educational product showcase
+- a seamless multi-scene web experience
+
+The user should feel like they are traveling through the concept.
+
+---
+
+## Brand behavior
+
+Brand name: **Luma**
+
+Opening screen requirements:
+- “Luma” appears clearly and elegantly
+- includes a highly concise 2-line scope statement
+- this should be the clearest title moment in the entire product
+
+After the first screen:
+- the icon / brand mark becomes very small and subtle
+- it should not remain loudly visible throughout
+- branding can return strongly only at the end screen
+
+The identity should feel like a real premium science-tech product.
+
+---
+
+## Core scene structure
+
+Build the web app as a sequence of drifting modes/scenes that visually blend into one another.
+
+### Scene 1 — Opening identity
+Purpose:
+- introduce Luma
+- establish premium tone
+- state a 2-line scope about understanding how light becomes an electrical signal
+
+Behavior:
+- cinematic fade / drift in
+- soft ambient background motion
+- no clutter
+- large typography, strong hierarchy, minimal words
+
+### Scene 2 — Light as information
+Purpose:
+- show that light is not just illumination, but a signal
+- prepare the user for detection
+
+Visual:
+- beams / pulses / photons moving through space
+- extremely clean environment
+- subtle labels, not textbook density
+
+Transition:
+- camera follows light into the device
+
+### Scene 3 — Inside the photodiode
+Purpose:
+- show p-side, n-side, depletion region
+- explain the internal structure
+
+Visual:
+- layered pseudo-3D cutaway
+- cross-sectional semiconductor landscape
+- electron-hole pair generation triggered by incident photons
+- very controlled labels that appear contextually
+
+This must feel like a premium scientific visualization, not a school diagram.
+
+### Scene 4 — Reverse bias
+Purpose:
+- show why the photodiode is operated in reverse bias
+
+Visual:
+- voltage polarity subtly introduced
+- depletion region widening animation
+- electric field direction hinted visually
+- charge carriers quickly swept across the junction
+
+Important:
+- this should be very intuitive
+- do not overload with equations
+- no unrealistic movement
+
+### Scene 5 — Light intensity to current
+Purpose:
+- show that increasing light intensity increases photocurrent
+
+Visual:
+- one clean visual relation
+- optionally a minimal current trace or graph
+- incident light slider visibly affects current output
+
+This is one of the key CBSE takeaways and must be unforgettable.
+
+### Scene 6 — Optical signal detection
+Purpose:
+- show a pulsed light signal becoming electrical output
+
+Visual:
+- a light pulse train converted into an electrical waveform / indicator
+- elegant side-by-side transformation
+- no oscilloscope clutter unless heavily stylized and minimal
+
+This scene gives the project strong real-world relevance.
+
+### Scene 7 — Real-world applications
+Purpose:
+- connect the concept to life
+
+Applications to include:
+- optical communication
+- smoke detector / safety sensing
+- IR receiver / remote systems
+- medical sensing or light measurement
+
+Visual:
+- not cards
+- each application should emerge almost cinematically from the current scene
+- can use floating product silhouettes or minimal device vignettes
+
+### Scene 8 — Closing
+Purpose:
+- return to the project identity
+- make the experience feel complete and intentional
+
+Behavior:
+- Luma branding returns with calm confidence
+- reinforce the core takeaway in one or two concise lines
+- no cheesy “thank you” school-project styling
+
+---
+
+## Interactivity model
+
+This is a demo site, not a freeform simulator.
+
+The user may control only 2–3 things:
+1. Light intensity
+2. Reverse bias voltage
+3. Mode toggle: continuous light / pulsed optical signal
+
+These controls should be placed in a side utility panel.
+
+### Side panel behavior
+Requirements:
+- collapsible and minimizable
+- elegant, slim, premium behavior similar to a refined music-app side tray
+- always available, but never dominant
+- smooth open/close motion
+- should auto-minimize in cinematic scenes if needed
+- on mobile, become a bottom sheet or floating compact drawer
+
+Panel content:
+- only the 2–3 controls
+- current parameter values
+- one-line explanation tied to current scene
+- possibly a tiny state indicator such as “Detection mode active”
+
+Never turn this into a full control dashboard.
+
+---
+
+## UI design system
+
+### Design qualities
+- minimalist first
+- premium second
+- futuristic only in subtle hints
+- no clutter
+- no generic cards
+- no thick borders
+- no school-poster colors
+- no glassmorphism overload
+- no fake holographic gimmicks
+
+### Color
+Base palette:
+- dark or deep neutral cinematic foundation
+- warm-white / cool-white text
+- one restrained accent for photon/light interactions
+- perhaps a second muted accent only if absolutely necessary for circuit polarity or current
+
+Color usage rules:
+- accents must be rare and meaningful
+- most of the screen should remain neutral and calm
+- avoid neon overload
+- avoid purple-blue startup gradients
+- avoid “AI-generated landing page” aesthetics
+
+### Typography
+- premium sans-serif with immaculate spacing
+- maybe one subtle display variation for hero only
+- very few text styles
+- concise copy
+- labels appear only when useful
+
+### Layout
+- grid-disciplined
+- asymmetric only in carefully chosen moments
+- huge value placed on whitespace
+- content should float in depth layers
+- almost no visible boxes unless absolutely needed
+
+### Components
+- controls should feel hardware-grade and tactile
+- graphs should be minimal and elegant
+- annotations should fade in/out contextually
+- buttons should be sparse and low-noise
+
+---
+
+## Motion language
+
+Motion is central to the experience.
+
+### Required motion qualities
+- continuous
+- elegant
+- cinematic
+- physically believable
+- smooth zooms
+- layered parallax
+- scene blending
+- controlled microinteractions
+
+### Must include
+- slow drift in the environment
+- precision zoom into device internals
+- parallax depth across layered semiconductor structures
+- smooth interpolation when controls change
+- soft annotation reveals
+- scene-to-scene transitions with no hard cuts
+- subtle waveform animation when optical signal mode is active
+
+### Avoid
+- exaggerated bounce
+- random motion
+- flashy transitions
+- over-fast effects
+- motion that distracts from learning
+
+---
+
+## Sound design
+
+Include subtle sound design that elevates but never dominates.
+
+Use:
+- soft hover ticks
+- low-volume ambient pulse
+- refined panel open/close sound
+- delicate response chirp when a control changes
+- optional low, clean pulse when optical signal mode is active
+
+Rules:
+- user must be able to mute sound
+- sound should never autoplay loudly
+- sound must feel premium and restrained
+- no game-like audio
+- no childish SFX
+
+---
+
+## Scientific visualization rules
+
+All visuals must remain scientifically plausible.
+
+### Show clearly
+- photon/light incidence
+- generation of electron-hole pairs
+- depletion region as the important active zone
+- reverse bias widening the depletion region
+- charge separation due to electric field
+- current output increasing with light intensity
+- tiny dark current in absence of light
+
+### Avoid
+- fake atom animations
+- fantasy-style particle chaos
+- wrong charge movement
+- oversimplifications that create false physics
+- glowing nonsense just to look futuristic
+
+This project should prioritize intuitive accuracy.
+
+---
+
+## Graph and data visualization rules
+
+Graphs are secondary, not dominant.
+
+Allowed graphs:
+- photocurrent vs light intensity
+- simple current output trace
+- optional optical pulse to electrical pulse mapping
+
+Rules:
+- at most one major graph visible at a time
+- very sparse axes and labels
+- premium editorial styling
+- graph should serve the visual explanation, not dominate it
+- no crowded dashboards
+- no multicolor analytical charts
+
+---
+
+## Tech stack
+
+Preferred stack:
+- Next.js
+- React
+- Tailwind CSS
+- Framer Motion
+- SVG + Canvas hybrid for visualizations
+- lightweight sound library such as Howler.js
+
+Deployment target:
+- Vercel
+
+Architecture principles:
+- scene-based modular components
+- central state for the 2–3 controls
+- scroll and route transitions must feel unified
+- optimize for smoothness and fast loading
+- keep pseudo-3D lightweight, do not use heavy real-time 3D unless extremely necessary
+
+---
+
+## Recommended app structure
+
+Possible structure:
+- app/
+  - page.tsx
+  - layout.tsx
+  - globals.css
+- components/
+  - opening-hero
+  - photon-stream
+  - diode-cutaway
+  - reverse-bias-scene
+  - photocurrent-scene
+  - signal-detection-scene
+  - applications-scene
+  - closing-scene
+  - control-panel
+  - ambient-audio-toggle
+- lib/
+  - simulation-state
+  - motion-config
+  - content
+  - helpers
+
+The entire app should still feel like one experience rather than isolated components.
+
+---
+
+## Content tone
+
+Writing style should be:
+- concise
+- academically clean
+- highly understandable
+- premium product-copy level
+- not verbose
+- not childish
+- not textbook-heavy
+
+Example tone:
+- “Light enters the junction.”
+- “Inside the depletion region, photons free charge carriers.”
+- “Reverse bias widens the active region, improving detection.”
+- “As intensity rises, photocurrent increases.”
+
+Use short, elegant statements over long paragraphs.
+
+---
+
+## What makes Luma stand out
+
+Luma should stand out because of:
+- seamless cinematic scene blending
+- premium minimal interface quality
+- scientifically believable semiconductor visualizations
+- pseudo-3D educational storytelling
+- elegant control restraint
+- documentary-grade motion and pacing
+- real-product polish instead of school-project styling
+
+It should feel like a web experience from a professional science communication studio.
+
+---
+
+## Non-negotiables
+
+Do not do any of the following:
+- no generic feature cards
+- no obvious section separators
+- no cluttered graphs
+- no unrealistic physics
+- no maximalist UI
+- no startup-template gradients
+- no fake futuristic overlays
+- no dense dashboard panels
+- no childish educational aesthetics
+- no “school project report website” look
+- no unnecessary controls
+- no loud branding after the intro
+- no intrusive popups
+- no abrupt transitions
+
+Minimalism is the first priority.
+
+---
+
+## README requirement
+
+Also generate a separate `README.md` for the repository.
+
+The README must include:
+1. Short project abstract
+2. Learning objectives
+3. Feature list
+
+Tone:
+- clean
+- concise
+- deployment-friendly
+- appropriate for GitHub and Vercel hosting
+
+Do not make the README overly long.
+
+========================================================================================================================================
+
+Context 2:
+
+Build a premium, minimalist, cinematic web app called **Luma** about photodiodes. The experience must feel like one seamless drifting explainer film, not a sectioned website. It should be deployable on Vercel, built with a modern frontend stack, and designed like a professional science-tech demo. A photodiode must be presented as a reverse-biased light-sensitive p-n junction used to detect optical signals, with photocurrent increasing as incident light intensity increases. Keep the science visually intuitive but accurate. [web:9][web:17][web:21]
+
+## Scene composition specs
+
+### Scene 1 — Brand opening
+Create a near-silent, cinematic opening frame with deep neutral space, soft environmental motion, and the word **Luma** as the primary focal point. Under it, place a concise 2-line scope statement explaining that the project shows how light is converted into an electrical signal inside a photodiode. The composition should be centered, sparse, and premium, with no visible UI clutter. [web:21]
+
+### Scene 2 — Light enters
+Transition by letting the camera drift forward into a stream of controlled light pulses. Use a layered 2.5D composition with soft depth blur, restrained glow, and clean photon paths moving toward a distant device silhouette, establishing that the system is about detecting optical signals. [web:21]
+
+### Scene 3 — Device reveal
+Morph the silhouette into a pseudo-3D cutaway of a photodiode. The composition should split into elegant material layers showing p-region, n-region, and depletion region without textbook ugliness; labels should appear only when relevant and fade away once understood. [web:9]
+
+### Scene 4 — Reverse bias explanation
+Introduce voltage terminals with a refined, minimal circuit framing and animate the diode into reverse bias. Show the depletion region widening and the scene becoming more “sensitive” and spacious, making it visually clear that reverse bias supports optical detection and faster response rather than using dense text. [web:9][web:16]
+
+### Scene 5 — Photon interaction
+Zoom further inward and show photons striking the junction region, creating electron-hole pairs. The composition should stage the event clearly: light arrives, carriers appear, and the internal electric field sweeps them apart in a believable direction, avoiding chaotic particles or fake sci-fi visuals. [web:9][web:21]
+
+### Scene 6 — Light to current
+Bring in a single restrained control panel from the side, containing only 2–3 controls: light intensity, reverse bias voltage, and signal mode. As light intensity changes, animate the current output line or meter so that the visual relationship is immediate and memorable: more light, more photocurrent. [web:17][web:19]
+
+### Scene 7 — Optical signal detection
+Shift from continuous illumination to pulsed light mode. Compose the frame as a clean transformation: a train of optical pulses on one side turns into an electrical response trace on the other, showing the photodiode as a detector for optical signals rather than just a light sensor. [web:9][web:21]
+
+### Scene 8 — Real-world usage drift
+Without hard cuts, let the signal scene dissolve into a sequence of minimal real-world application vignettes such as optical communication, IR reception, and smoke detection. These should not be generic feature cards; each use case should emerge as a quiet, elegant continuation of the same visual world. [web:17]
+
+### Scene 9 — Closing frame
+Return to stillness and bring **Luma** back with quiet confidence. End with one concise conceptual takeaway that reinforces the central idea: incident light generates charge carriers in a reverse-biased junction, producing a measurable current used for detection. [web:9][web:17]
+
+## UI behavior rules
+
+Use a collapsible side control tray similar in spirit to a premium music app utility panel: slim, minimizable, smooth, and never dominant. The user should only control a few variables, because this is a guided demo experience, not a freeform engineering simulator. [cite:4]
+
+## Motion rules
+
+Every scene must blend into the next with slow camera drift, parallax, zoom, and soft annotation choreography. No hard section boundaries, no generic cards, no busy dashboards, no maximalist effects, and no unrealistic physics; the whole experience must feel like a polished scientific explainer made by a professional company. [cite:5]
+
