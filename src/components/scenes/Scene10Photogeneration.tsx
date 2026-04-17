@@ -3,8 +3,8 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 export function Scene10Photogeneration({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Visible 0.73 to 0.80
-  const opacity = useTransform(scrollYProgress, [0.73, 0.75, 0.78, 0.80], [0, 1, 1, 0]);
+  // Visible 0.630 to 0.695
+  const opacity = useTransform(scrollYProgress, [0.630, 0.650, 0.675, 0.695], [0, 1, 1, 0]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   const pairs = [

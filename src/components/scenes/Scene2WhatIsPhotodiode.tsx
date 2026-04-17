@@ -3,8 +3,8 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 export function Scene2WhatIsPhotodiode({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Visible 0.05 to 0.13
-  const opacity = useTransform(scrollYProgress, [0.05, 0.08, 0.12, 0.14], [0, 1, 1, 0]);
+  // Visible 0.040 to 0.100 (Increased duration for text)
+  const opacity = useTransform(scrollYProgress, [0.040, 0.060, 0.080, 0.100], [0, 1, 1, 0]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   return (

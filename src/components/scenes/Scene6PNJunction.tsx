@@ -3,9 +3,9 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 export function Scene6PNJunction({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Visible 0.45 to 0.54
-  const opacity = useTransform(scrollYProgress, [0.45, 0.47, 0.52, 0.54], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0.45, 0.54], [0.95, 1.05]);
+  // Visible 0.330 to 0.430 (Increased duration for mechanics)
+  const opacity = useTransform(scrollYProgress, [0.330, 0.355, 0.405, 0.430], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0.330, 0.430], [0.95, 1.05]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   // Fixed positions — no Math.random()

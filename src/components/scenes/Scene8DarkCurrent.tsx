@@ -3,9 +3,9 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 export function Scene8DarkCurrent({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Visible 0.60 to 0.68
-  const opacity = useTransform(scrollYProgress, [0.60, 0.62, 0.66, 0.68], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0.60, 0.68], [0.95, 1.05]);
+  // Visible 0.510 to 0.575
+  const opacity = useTransform(scrollYProgress, [0.510, 0.530, 0.555, 0.575], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0.510, 0.575], [0.95, 1.05]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   return (

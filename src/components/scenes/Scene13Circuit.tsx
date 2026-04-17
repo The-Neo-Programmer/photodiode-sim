@@ -2,13 +2,12 @@
 
 import { motion, MotionValue, useTransform } from "framer-motion";
 
-// Scene: Photodiode in Reverse-Bias TIA Circuit
-// This plays between Scene12 (graph) and Scene13 (optical detection)
-// Scroll range: 0.80 to 0.87 (Scene13OpticalDetection shifts to 0.87-0.93)
+// This plays between Graph (0.690-0.795) and Optical Detection (0.875-0.935)
+// Scroll range: 0.790 to 0.880
 export function Scene13Circuit({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  const opacity = useTransform(scrollYProgress, [0.80, 0.82, 0.85, 0.87], [0, 1, 1, 0]);
+  const opacity = useTransform(scrollYProgress, [0.790, 0.810, 0.860, 0.880], [0, 1, 1, 0]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
-  const currentFlow = useTransform(scrollYProgress, [0.82, 0.86], [0, 1]);
+  const currentFlow = useTransform(scrollYProgress, [0.808, 0.862], [0, 1]);
 
   return (
     <motion.div

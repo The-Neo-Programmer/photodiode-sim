@@ -3,9 +3,9 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 export function Scene4PType({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Visible 0.28 to 0.38
-  const opacity = useTransform(scrollYProgress, [0.28, 0.30, 0.36, 0.38], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0.28, 0.38], [0.95, 1.05]);
+  // Visible 0.195 to 0.270 (Increased duration for text)
+  const opacity = useTransform(scrollYProgress, [0.195, 0.215, 0.250, 0.270], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0.195, 0.270], [0.95, 1.05]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   // Fixed positions — NO Math.random() to prevent hydration mismatch

@@ -3,8 +3,8 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 export function Scene13OpticalDetection({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Visible 0.87 to 0.93
-  const opacity = useTransform(scrollYProgress, [0.87, 0.89, 0.91, 0.93], [0, 1, 1, 0]);
+  // Visible 0.875 to 0.935 — after Circuit (0.790-0.880), before RealWorld (0.930-0.990)
+  const opacity = useTransform(scrollYProgress, [0.875, 0.895, 0.915, 0.935], [0, 1, 1, 0]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   return (

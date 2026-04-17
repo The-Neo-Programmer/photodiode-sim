@@ -4,10 +4,10 @@ import { motion, MotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 
 export function Scene1Opening({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Scene 1 fades out quickly (16 scenes total, 1st scene ends around 0.06)
-  const opacity = useTransform(scrollYProgress, [0, 0.04, 0.06], [1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.06], [0, -60]);
-  const scale = useTransform(scrollYProgress, [0, 0.06], [1, 1.08]);
+  // Use a slight fade out by 0.04 for better timing
+  const opacity = useTransform(scrollYProgress, [0, 0.02, 0.04], [1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.04], [0, -40]);
+  const scale = useTransform(scrollYProgress, [0, 0.04], [1, 1.08]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   return (

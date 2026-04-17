@@ -3,9 +3,9 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 export function Scene5NType({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Visible 0.37 to 0.46
-  const opacity = useTransform(scrollYProgress, [0.37, 0.39, 0.44, 0.46], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0.37, 0.46], [0.95, 1.05]);
+  // Visible 0.265 to 0.335 (Increased duration for text)
+  const opacity = useTransform(scrollYProgress, [0.265, 0.285, 0.315, 0.335], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0.265, 0.335], [0.95, 1.05]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   // Fixed electron positions

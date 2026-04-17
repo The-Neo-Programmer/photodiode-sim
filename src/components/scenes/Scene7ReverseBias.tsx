@@ -3,13 +3,12 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 export function Scene7ReverseBias({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Visible 0.53 to 0.61
-  const opacity = useTransform(scrollYProgress, [0.53, 0.55, 0.59, 0.61], [0, 1, 1, 0]);
+  // Visible 0.425 to 0.515
+  const opacity = useTransform(scrollYProgress, [0.425, 0.445, 0.495, 0.515], [0, 1, 1, 0]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   // Depletion region widens as user scrolls
-  const depletionWidth = useTransform(scrollYProgress, [0.55, 0.60], ["5rem", "16rem"]);
-  const voltageLabel = useTransform(scrollYProgress, [0.55, 0.60], [0, 5]);
+  const depletionWidth = useTransform(scrollYProgress, [0.430, 0.505], ["5rem", "16rem"]);
 
   return (
     <motion.div

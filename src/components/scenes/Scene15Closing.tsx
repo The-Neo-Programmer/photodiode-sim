@@ -4,9 +4,9 @@ import { motion, MotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 
 export function Scene15Closing({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Fade in only after Scene14 clears (starts at 0.97)
-  const opacity = useTransform(scrollYProgress, [0.97, 0.99, 1.0], [0, 1, 1]);
-  const y = useTransform(scrollYProgress, [0.97, 1.0], [30, 0]);
+  // Fade in only after Scene14 starts clearing (starts at 0.970)
+  const opacity = useTransform(scrollYProgress, [0.970, 0.990, 1.0], [0, 1, 1]);
+  const y = useTransform(scrollYProgress, [0.970, 1.0], [30, 0]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   return (
@@ -35,9 +35,6 @@ export function Scene15Closing({ scrollYProgress }: { scrollYProgress: MotionVal
       <p className="text-base md:text-lg text-white/60 font-light max-w-xl mx-auto leading-relaxed font-[var(--font-sans)]">
         Light becomes current. Photons become information. <br />That bridge is the photodiode.
       </p>
-      
-      <div className="mt-16 w-[1px] h-12 bg-gradient-to-b from-white/20 to-transparent mx-auto" />
-      <p className="text-xs text-white/20 mt-6 tracking-[0.4em] uppercase font-mono">End of Simulation</p>
     </motion.div>
   );
 }

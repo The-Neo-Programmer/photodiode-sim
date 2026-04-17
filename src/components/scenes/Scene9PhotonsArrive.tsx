@@ -3,9 +3,9 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 export function Scene9PhotonsArrive({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Visible 0.67 to 0.74
-  const opacity = useTransform(scrollYProgress, [0.67, 0.69, 0.72, 0.74], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0.67, 0.74], [0.95, 1.05]);
+  // Visible 0.570 to 0.635
+  const opacity = useTransform(scrollYProgress, [0.570, 0.590, 0.615, 0.635], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0.570, 0.635], [0.95, 1.05]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   const photons = [

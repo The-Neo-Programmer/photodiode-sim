@@ -3,13 +3,13 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 export function Scene2LightAsInformation({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Visible 0.13 to 0.20 (shifted to make room for new Scene2 "What is a Photodiode")
-  const opacity = useTransform(scrollYProgress, [0.13, 0.15, 0.18, 0.20], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0.13, 0.20], [0.85, 1.15]);
+  // Visible 0.090 to 0.145
+  const opacity = useTransform(scrollYProgress, [0.090, 0.110, 0.130, 0.145], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0.100, 0.145], [0.85, 1.15]);
   const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
-  const photonZ1 = useTransform(scrollYProgress, [0.13, 0.20], [0, 200]);
-  const photonZ2 = useTransform(scrollYProgress, [0.13, 0.20], [50, 300]);
+  const photonZ1 = useTransform(scrollYProgress, [0.100, 0.145], [0, 200]);
+  const photonZ2 = useTransform(scrollYProgress, [0.100, 0.145], [50, 300]);
 
   return (
     <motion.div 
