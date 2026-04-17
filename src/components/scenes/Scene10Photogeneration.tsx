@@ -14,16 +14,9 @@ export function Scene10Photogeneration({ scrollYProgress }: { scrollYProgress: M
   return (
     <motion.div 
       style={{ opacity, display }}
-      className="absolute inset-0 flex-col items-center justify-center pointer-events-none"
+      className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6"
     >
-      <div className="absolute top-1/4 text-center w-full">
-        <h2 className="text-xl md:text-2xl text-[var(--color-accent)] font-light tracking-wide mb-2">Photogeneration & Sweep</h2>
-        <p className="text-white/50 text-sm max-w-sm mx-auto leading-relaxed">
-          The photon creates an electron-hole pair. The strong internal electric field immediately sweeps the electron toward the n-side and the hole toward the p-side, preventing recombination.
-        </p>
-      </div>
-
-      <div className="relative w-full max-w-xl h-64 mt-20 flex items-center justify-center border border-white/5 bg-black overflow-hidden rounded-2xl shadow-xl">
+      <div className="relative w-full max-w-xl h-64 flex items-center justify-center border border-white/5 bg-black overflow-hidden rounded-2xl shadow-xl mb-12">
         {mounted && (
           <div className="relative w-full h-full flex items-center justify-center">
             {/* Explosion / Pair generation */}
@@ -52,6 +45,13 @@ export function Scene10Photogeneration({ scrollYProgress }: { scrollYProgress: M
             </motion.div>
           </div>
         )}
+      </div>
+
+      <div className="text-center w-full max-w-2xl mx-auto">
+        <h2 className="text-xl md:text-2xl text-[var(--color-accent)] font-light tracking-wide mb-3">Photogeneration & Sweep</h2>
+        <p className="text-white/50 text-base leading-relaxed">
+          The photon creates an electron-hole pair. The strong internal electric field immediately sweeps the electron toward the n-side and the hole toward the p-side, preventing recombination.
+        </p>
       </div>
     </motion.div>
   );

@@ -13,16 +13,9 @@ export function Scene7ReverseBias({ scrollYProgress }: { scrollYProgress: Motion
   return (
     <motion.div 
       style={{ opacity, display }}
-      className="absolute inset-0 flex-col items-center justify-center pointer-events-none"
+      className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6"
     >
-      <div className="absolute top-1/4 text-center w-full">
-        <h2 className="text-xl md:text-2xl text-white font-light tracking-wide mb-2">Applying Reverse Bias</h2>
-        <p className="text-white/50 text-sm max-w-sm mx-auto leading-relaxed">
-          Scrolling further increases the reverse voltage. Observe how the depletion region physically widens, strengthening the internal electric field.
-        </p>
-      </div>
-
-      <div className="mt-20 relative w-full max-w-3xl h-48 md:h-64 mx-auto flex items-stretch border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
+      <div className="relative w-full max-w-3xl h-48 md:h-64 mx-auto flex items-stretch border border-white/5 rounded-2xl overflow-hidden shadow-2xl mb-12">
         <div className="flex-1 bg-[#2A1010]/30 flex flex-col justify-between p-4 border-r border-[#CA4A4A]/20">
           <span className="text-[#CA4A4A] text-xs font-mono uppercase">P-Type</span>
           <span className="text-white/30 text-[10px] uppercase tracking-widest mt-auto">Terminal: Negative (-)</span>
@@ -41,6 +34,14 @@ export function Scene7ReverseBias({ scrollYProgress }: { scrollYProgress: Motion
           <span className="text-white/30 text-[10px] uppercase tracking-widest mt-auto">Terminal: Positive (+)</span>
         </div>
       </div>
+
+      <div className="text-center w-full max-w-2xl mx-auto">
+        <h2 className="text-xl md:text-2xl text-white font-light tracking-wide mb-3">Applying Reverse Bias</h2>
+        <p className="text-white/50 text-base leading-relaxed">
+          Scrolling further increases the reverse voltage. Observe how the depletion region physically widens, strengthening the internal electric field.
+        </p>
+      </div>
+
     </motion.div>
   );
 }

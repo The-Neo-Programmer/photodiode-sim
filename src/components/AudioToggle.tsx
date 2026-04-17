@@ -2,9 +2,67 @@
 
 import { useLumaStore } from "@/lib/store";
 import { Volume2, VolumeX } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 export function AudioToggle() {
   const { soundEnabled, toggleSound } = useLumaStore();
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const oscillatorRef = useRef<OscillatorNode | null>(null);
+  const gainNodeRef = useRef<GainNode | null>(null);
+
+  useEffect(() => {
+    // Generate a sleek, cinematic underlying drone when true
+    if (soundEnabled) {
+      if (!audioCtxRef.current) {
+        audioCtxRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+      }
+
+      const ctx = audioCtxRef.current;
+      
+      // Prevent creating multiple if clicked quickly
+      if (ctx.state === "suspended") ctx.resume();
+      
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      // Deep cinematic drone profile
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(55.0, ctx.currentTime); // Low A1 note
+
+      // Gentle fade in
+      gain.gain.setValueAtTime(0, ctx.currentTime);
+      gain.gain.linearRampToValueAtTime(0.1, ctx.currentTime + 2); // Very soft volume
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start();
+
+      oscillatorRef.current = osc;
+      gainNodeRef.current = gain;
+
+    } else {
+      // Gentle fade out
+      if (audioCtxRef.current && gainNodeRef.current && oscillatorRef.current) {
+        const ctx = audioCtxRef.current;
+        gainNodeRef.current.gain.linearRampToValueAtTime(0, ctx.currentTime + 1);
+        setTimeout(() => {
+          oscillatorRef.current?.stop();
+          oscillatorRef.current?.disconnect();
+          oscillatorRef.current = null;
+        }, 1000);
+      }
+    }
+
+    // Cleanup on unmount
+    return () => {
+      if (audioCtxRef.current && oscillatorRef.current) {
+         oscillatorRef.current.stop();
+         oscillatorRef.current.disconnect();
+         oscillatorRef.current = null;
+      }
+    };
+  }, [soundEnabled]);
 
   return (
     <button

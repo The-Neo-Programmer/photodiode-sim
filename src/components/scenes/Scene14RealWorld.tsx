@@ -10,16 +10,9 @@ export function Scene14RealWorld({ scrollYProgress }: { scrollYProgress: MotionV
   return (
     <motion.div 
       style={{ opacity, display }}
-      className="absolute inset-0 flex-col items-center justify-center pointer-events-none"
+      className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6"
     >
-      <div className="absolute top-[15%] text-center w-full">
-        <h2 className="text-xl md:text-2xl text-white font-light tracking-wide mb-2">Real-World Application</h2>
-        <p className="text-white/50 text-sm max-w-sm mx-auto leading-relaxed">
-          From optical communication to ambient light sensing, photodiodes form the vital bridge between photons and electronics.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-4xl mx-auto w-full px-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto w-full mb-16">
         <div className="flex flex-col items-center text-center gap-4 border border-white/5 bg-white/[0.01] p-6 rounded-2xl backdrop-blur-sm">
            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center mb-2">
              <div className="w-4 h-4 bg-[var(--color-accent)]/80 rounded-full blur-[2px]" />
@@ -42,6 +35,14 @@ export function Scene14RealWorld({ scrollYProgress }: { scrollYProgress: MotionV
            <p className="text-xs text-white/40">Sensing light scattering caused by airborne particles.</p>
         </div>
       </div>
+
+      <div className="text-center w-full max-w-2xl mx-auto mt-4">
+        <h2 className="text-xl md:text-2xl text-white font-light tracking-wide mb-3">Real-World Application</h2>
+        <p className="text-white/50 text-base leading-relaxed">
+          From optical communication to ambient light sensing, photodiodes form the vital bridge between photons and electronics.
+        </p>
+      </div>
+
     </motion.div>
   );
 }

@@ -10,16 +10,9 @@ export function Scene13OpticalDetection({ scrollYProgress }: { scrollYProgress: 
   return (
     <motion.div 
       style={{ opacity, display }}
-      className="absolute inset-0 flex-col items-center justify-center pointer-events-none"
+      className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6"
     >
-      <div className="absolute top-[15%] text-center w-full">
-        <h2 className="text-xl md:text-2xl text-[var(--color-accent)] font-light tracking-wide mb-2">Signal Detection</h2>
-        <p className="text-white/50 text-sm max-w-sm mx-auto leading-relaxed">
-          Pulsed optical data enters the device, and the precisely corresponding depletion physics convert it instantly into a readable electrical square wave.
-        </p>
-      </div>
-
-      <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-2xl mt-20 gap-8">
+      <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-2xl gap-8 mb-16">
         {/* Optical Input */}
         <div className="flex-1 flex flex-col items-center gap-4 w-full">
           <span className="text-[10px] text-[var(--color-accent)] uppercase tracking-widest font-mono">Optical Input</span>
@@ -30,7 +23,7 @@ export function Scene13OpticalDetection({ scrollYProgress }: { scrollYProgress: 
           </div>
         </div>
 
-        <div className="text-white/20 px-4">→</div>
+        <div className="text-white/20 px-4 mt-8 md:mt-0">→</div>
 
         {/* Electrical Output Trace */}
         <div className="flex-1 flex flex-col items-center gap-4 w-full">
@@ -52,6 +45,13 @@ export function Scene13OpticalDetection({ scrollYProgress }: { scrollYProgress: 
                 </svg>
           </div>
         </div>
+      </div>
+
+      <div className="text-center w-full max-w-2xl mx-auto">
+        <h2 className="text-xl md:text-2xl text-[var(--color-accent)] font-light tracking-wide mb-3">Signal Detection</h2>
+        <p className="text-white/50 text-base leading-relaxed">
+          Pulsed optical data enters the device, and the precisely corresponding depletion physics convert it instantly into a readable electrical square wave.
+        </p>
       </div>
     </motion.div>
   );

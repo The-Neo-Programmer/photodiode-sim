@@ -15,16 +15,9 @@ export function Scene9PhotonsArrive({ scrollYProgress }: { scrollYProgress: Moti
   return (
     <motion.div 
       style={{ opacity, scale, display }}
-      className="absolute inset-0 flex-col items-center justify-center pointer-events-none"
+      className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6"
     >
-      <div className="absolute top-1/4 text-center w-full">
-        <h2 className="text-xl md:text-2xl text-[var(--color-accent)] font-light tracking-wide mb-2">Photons Arrive</h2>
-        <p className="text-white/50 text-sm max-w-sm mx-auto leading-relaxed">
-          Incident light carrying energy greater than the bandgap enters the depletion region seamlessly through the surface.
-        </p>
-      </div>
-
-      <div className="mt-20 relative w-full max-w-xl h-64 mx-auto flex items-center justify-center overflow-hidden">
+      <div className="relative w-full max-w-xl h-64 mx-auto flex items-center justify-center overflow-hidden mb-12 shadow-2xl rounded-2xl border border-white/5 bg-black">
         {mounted && (
            <motion.div 
              animate={{ y: [-150, 0] }}
@@ -35,6 +28,13 @@ export function Scene9PhotonsArrive({ scrollYProgress }: { scrollYProgress: Moti
         <div className="absolute bottom-0 w-full h-1/2 bg-black/80 backdrop-blur-sm border-t border-white/20 flex items-center justify-center">
            <span className="text-white/20 font-mono tracking-widest text-[10px] uppercase">Active Region</span>
         </div>
+      </div>
+
+      <div className="text-center w-full max-w-2xl mx-auto">
+        <h2 className="text-xl md:text-2xl text-[var(--color-accent)] font-light tracking-wide mb-3">Photons Arrive</h2>
+        <p className="text-white/50 text-base leading-relaxed">
+          Incident light carrying energy greater than the bandgap enters the depletion region seamlessly through the surface.
+        </p>
       </div>
     </motion.div>
   );

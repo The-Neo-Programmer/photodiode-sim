@@ -10,22 +10,12 @@ export function Scene11_12Graph({ scrollYProgress }: { scrollYProgress: MotionVa
   // The actual line drawing progress (0 to 1) based on scroll across the graph area 0.70 to 0.78
   const pathLength = useTransform(scrollYProgress, [0.70, 0.78], [0, 1]);
   
-  // Data points (Light Intensity 'Φ' vs Photocurrent 'I_p')
-  // Starts with a tiny flat offset (Dark Current) on the Y axis, then linear.
-
   return (
     <motion.div 
       style={{ opacity, display }}
-      className="absolute inset-0 flex-col items-center justify-center pointer-events-none"
+      className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6"
     >
-      <div className="absolute top-[15%] text-center w-full">
-        <h2 className="text-xl md:text-2xl text-[var(--color-accent)] font-light tracking-wide mb-2">Photocurrent vs Intensity</h2>
-        <p className="text-white/50 text-sm max-w-sm mx-auto leading-relaxed">
-          The photocurrent is linearly proportional to the incident light intensity. Keep scrolling to increase intensity and plot the graph.
-        </p>
-      </div>
-
-      <div className="mt-10 relative w-full max-w-lg aspect-video mx-auto flex items-end justify-center">
+      <div className="relative w-full max-w-lg aspect-video mx-auto flex items-end justify-center mb-16">
          {/* Graph Axes */}
          <div className="absolute inset-0 border-l-2 border-b-2 border-white/20 pb-4 pl-4 flex items-end">
             
@@ -91,6 +81,14 @@ export function Scene11_12Graph({ scrollYProgress }: { scrollYProgress: MotionVa
             </svg>
          </div>
       </div>
+
+      <div className="text-center w-full max-w-2xl mx-auto">
+        <h2 className="text-xl md:text-2xl text-[var(--color-accent)] font-light tracking-wide mb-3">Photocurrent vs Intensity</h2>
+        <p className="text-white/50 text-base leading-relaxed">
+          The photocurrent is linearly proportional to the incident light intensity. Keep scrolling to increase intensity and plot the graph.
+        </p>
+      </div>
+
     </motion.div>
   );
 }

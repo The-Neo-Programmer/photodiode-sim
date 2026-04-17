@@ -11,18 +11,11 @@ export function Scene5NType({ scrollYProgress }: { scrollYProgress: MotionValue<
   return (
     <motion.div 
       style={{ opacity, scale, display }}
-      className="absolute inset-0 flex-col items-center justify-center pointer-events-none"
+      className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6"
     >
-      <div className="absolute top-1/4 text-center w-full">
-        <h2 className="text-xl md:text-2xl text-[#4A8ACA] font-light tracking-wide mb-2">N-Type Doping</h2>
-        <p className="text-white/50 text-sm max-w-sm mx-auto leading-relaxed">
-          Doping with pentavalent impurities provides an excess of negatively charged free electrons, leaving behind positively charged donor ions.
-        </p>
-      </div>
-
-      <div className="mt-20 relative w-64 h-64 md:w-80 md:h-80 mx-auto bg-[#0A1A2F]/30 border border-[#1A3A5F] rounded-2xl flex flex-wrap content-center justify-center gap-6 p-8">
+      <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto bg-[#0A1A2F]/30 border border-[#1A3A5F] rounded-2xl flex flex-wrap content-center justify-center gap-6 p-8 mb-12 shadow-2xl">
         {[...Array(6)].map((_, i) => (
-          <div key={i} className="relative w-12 h-12 flex items-center justify-center">
+          <div key={`ntype-${i}`} className="relative w-12 h-12 flex items-center justify-center">
             {/* Donor Ion (Positive) */}
             <div className="w-8 h-8 rounded border border-[#4A8ACA]/40 flex items-center justify-center bg-black/50">
               <span className="text-[#4A8ACA]/60 text-[10px]">+</span>
@@ -37,6 +30,13 @@ export function Scene5NType({ scrollYProgress }: { scrollYProgress: MotionValue<
             </motion.div>
           </div>
         ))}
+      </div>
+
+      <div className="text-center w-full max-w-2xl mx-auto">
+        <h2 className="text-xl md:text-2xl text-[#4A8ACA] font-light tracking-wide mb-3">N-Type Doping</h2>
+        <p className="text-white/50 text-base leading-relaxed">
+          Doping with pentavalent impurities provides an excess of negatively charged free electrons, leaving behind positively charged donor ions.
+        </p>
       </div>
     </motion.div>
   );
