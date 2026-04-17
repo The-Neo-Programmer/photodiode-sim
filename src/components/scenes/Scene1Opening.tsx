@@ -4,15 +4,18 @@ import { motion, MotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 
 export function Scene1Opening({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
-  // Scene 1 is visible from 0 to 0.1, and fades out by 0.15
-  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.15], [1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.15], [0, -100]);
-  const scale = useTransform(scrollYProgress, [0, 0.15], [1, 1.1]);
+  // Scene 1 fades out quickly (15 scenes total, 1st scene ends around 0.06)
+  const opacity = useTransform(scrollYProgress, [0, 0.04, 0.06], [1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.06], [0, -100]);
+  const scale = useTransform(scrollYProgress, [0, 0.06], [1, 1.1]);
+  
+  // Guarantee it doesn't linger in DOM invisibly blocking things
+  const display = useTransform(opacity, (o) => (o > 0 ? "flex" : "none"));
 
   return (
     <motion.div 
-      style={{ opacity, y, scale }}
-      className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pointer-events-none"
+      style={{ opacity, y, scale, display }}
+      className="absolute inset-0 flex-col items-center justify-center text-center px-6 pointer-events-none"
     >
       <div className="mb-8 opacity-90 drop-shadow-2xl">
         <Image 

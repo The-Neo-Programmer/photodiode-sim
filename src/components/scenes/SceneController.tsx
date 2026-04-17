@@ -2,27 +2,37 @@
 
 import { MotionValue } from "framer-motion";
 import { Scene1Opening } from "./Scene1Opening";
-import { Scene2LightEnters } from "./Scene2LightEnters";
-import { Scene3DeviceReveal } from "./Scene3DeviceReveal";
-import { Scene4ReverseBias } from "./Scene4ReverseBias";
-import { Scene5PhotonInteraction } from "./Scene5PhotonInteraction";
-import { Scene6LightToCurrent } from "./Scene6LightToCurrent";
-import { Scene7OpticalSignalDetection } from "./Scene7OpticalSignalDetection";
-import { Scene8RealWorld } from "./Scene8RealWorld";
-import { Scene9Closing } from "./Scene9Closing";
+import { Scene2LightAsInformation } from "./Scene2LightAsInformation";
+import { Scene3Substrate } from "./Scene3Substrate";
+import { Scene4PType } from "./Scene4PType";
+import { Scene5NType } from "./Scene5NType";
+import { Scene6PNJunction } from "./Scene6PNJunction";
+import { Scene7ReverseBias } from "./Scene7ReverseBias";
+import { Scene8DarkCurrent } from "./Scene8DarkCurrent";
+import { Scene9PhotonsArrive } from "./Scene9PhotonsArrive";
+import { Scene10Photogeneration } from "./Scene10Photogeneration";
+import { Scene11_12Graph } from "./Scene11_12Graph";
+import { Scene13OpticalDetection } from "./Scene13OpticalDetection";
+import { Scene14RealWorld } from "./Scene14RealWorld";
+import { Scene15Closing } from "./Scene15Closing";
 
 export function SceneController({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
   return (
     <>
       <Scene1Opening scrollYProgress={scrollYProgress} />
-      <Scene2LightEnters scrollYProgress={scrollYProgress} />
-      <Scene3DeviceReveal scrollYProgress={scrollYProgress} />
-      <Scene4ReverseBias scrollYProgress={scrollYProgress} />
-      <Scene5PhotonInteraction scrollYProgress={scrollYProgress} />
-      <Scene6LightToCurrent scrollYProgress={scrollYProgress} />
-      <Scene7OpticalSignalDetection scrollYProgress={scrollYProgress} />
-      <Scene8RealWorld scrollYProgress={scrollYProgress} />
-      <Scene9Closing scrollYProgress={scrollYProgress} />
+      <Scene2LightAsInformation scrollYProgress={scrollYProgress} />
+      <Scene3Substrate scrollYProgress={scrollYProgress} />
+      <Scene4PType scrollYProgress={scrollYProgress} />
+      <Scene5NType scrollYProgress={scrollYProgress} />
+      <Scene6PNJunction scrollYProgress={scrollYProgress} />
+      <Scene7ReverseBias scrollYProgress={scrollYProgress} />
+      <Scene8DarkCurrent scrollYProgress={scrollYProgress} />
+      <Scene9PhotonsArrive scrollYProgress={scrollYProgress} />
+      <Scene10Photogeneration scrollYProgress={scrollYProgress} />
+      <Scene11_12Graph scrollYProgress={scrollYProgress} />
+      <Scene13OpticalDetection scrollYProgress={scrollYProgress} />
+      <Scene14RealWorld scrollYProgress={scrollYProgress} />
+      <Scene15Closing scrollYProgress={scrollYProgress} />
     </>
   );
 }

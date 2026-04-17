@@ -23,9 +23,9 @@ The experience is centered around creating a highly intuitive scientific visuali
 
 ## ✨ Features
 
-- **Seamless Cinematic Progression**: Driven by Framer Motion, 9 scientific scenes blend seamlessly without forced layout cuts or jarring boundaries.
+- **Seamless Cinematic Progression**: Driven by Framer Motion, 15 scientific scenes blend seamlessly without forced layout cuts or jarring boundaries.
 - **Pseudo-3D Visualizations**: Highly optimized 2.5D layered semiconductor cutaways utilizing CSS depth transformations.
-- **Empirical Control Panel**: A slim, globally-connected utility tray that lets users adjust light intensity, voltage bias, and detection mode smoothly.
+- **Automated Scroll Physics**: A strict scroll-linked engine replaces manual controls, directly mapping physical scroll progress to variable adjustments (like expanding the depletion region and plotting graphical lines natively).
 - **Responsiveness**: A fully responsive application crafted for pristine viewing across both desktop and mobile viewports.
 - **Refined Ambience**: Soft acoustic feedback generated with Howler.js, mapping tactile UI interactions with satisfying soundscapes.
 
