@@ -1,38 +1,49 @@
-# Luma: Photodiode Explainer
+<div align="center">
+  <img src="public/Luma-icon.png" alt="Luma Logo" width="100"/>
+  <h1 style="font-family: 'Söhne', 'Inter', sans-serif; margin-bottom: 0;">Luma</h1>
+  <p style="font-family: 'Söhne', 'Inter', sans-serif; font-weight: 300; font-size: 1.2rem; color: #888;">
+    A cinematic photodiode explainer demo.
+  </p>
+</div>
 
-Luma is a premium, minimalist interactive educational web application designed to visually explain how a photodiode converts incident light into an electrical signal. Built as a continuous cinematic explainer demo rather than a traditional section-based website, Luma offers a guided scroll-linked narrative that explores semiconductor structure, reverse bias physics, and the generation of photocurrent.
+---
 
-## Learning Objectives
+**Luma** is a premium, minimalist interactive web application designed to visually explain how a photodiode converts incident light into an electrical signal. Engineered as a continuous cinematic drift rather than a traditional section-based site, Luma relies on scroll-linked narratives to explore semiconductor structure, reverse bias physics, and photocurrent generation.
 
-By progressing through the Luma experience, users will understand:
-1. **Device Structure**: The internal layers of a p-n junction (p-type, n-type, and the central depletion region).
-2. **Reverse Bias Operation**: Why photodiodes are operated in reverse bias (to widen the active region and improve response speed).
-3. **Photogeneration**: How incident photons generate electron-hole pairs inside the depletion region.
-4. **Photocurrent Relationship**: How increasing light intensity directly boosts the resulting photocurrent, while remaining distinct from the minimal dark current.
-5. **Optical Signal Detection**: The translation of a pulsed optical data stream into a synchronized electrical waveform.
-6. **Real-world Applications**: How these concepts apply to modern technologies like fiber-optic communication arrays, smoke detectors, and IR receivers.
+## 🎯 Learning Objectives
 
-## Features
+The experience is centered around creating a highly intuitive scientific visualization without dense textbook clutter. By progressing through Luma, users will understand:
 
-- **Seamless Cinematic Progression**: A scroll-linked transition engine powered by Framer Motion, blending 9 different scientific scenes without abrupt layout shifts.
-- **Pseudo-3D Visualizations**: Highly optimized 2.5D layered semiconductor cutaways utilizing CSS depth and parallax instead of heavy WebGL.
-- **Interactive Control Panel**: A restrained utility sidebar allowing users to empirically test the effects of varying light intensity, reverse bias voltage, and operational mode (continuous vs. pulsed).
-- **Responsive & Accessible**: Optimized for robust viewing on single-page browser experiences across devices.
-- **Premium Acoustic Design**: Optional ambient background tone generated with Howler.js strictly bound to user interaction loops.
+- **Internal Structure**: The architecture of a p-n junction (p-type, n-type, and the central depletion region).
+- **Reverse Bias Operation**: The physical effect of applying reverse bias to widen the active region and improve response speed.
+- **Photogeneration Physics**: How incident photons generate electron-hole pairs precisely within the depletion region.
+- **Dynamic Photocurrent**: How directly increasing incident light intensity scales the photocurrent, separated from the device's dark current.
+- **Signal Detection**: The process of translating an optical data pulse train into a synchronized electrical waveform.
+- **Real-World Applications**: Bridging the theoretical physics to practical utilities like fiber-optic networks, smoke detectors, and IR receivers.
 
-## Deployment
+## ✨ Features
 
-Luma is optimized for instant deployment via **Vercel** and builds atop the Next.js `app` router system.
+- **Seamless Cinematic Progression**: Driven by Framer Motion, 9 scientific scenes blend seamlessly without forced layout cuts or jarring boundaries.
+- **Pseudo-3D Visualizations**: Highly optimized 2.5D layered semiconductor cutaways utilizing CSS depth transformations.
+- **Empirical Control Panel**: A slim, globally-connected utility tray that lets users adjust light intensity, voltage bias, and detection mode smoothly.
+- **Responsiveness**: A fully responsive application crafted for pristine viewing across both desktop and mobile viewports.
+- **Refined Ambience**: Soft acoustic feedback generated with Howler.js, mapping tactile UI interactions with satisfying soundscapes.
+
+## 🚀 Deployment
+
+Luma is optimized for Vercel and built on top of the modern Next.js `app` router system.
 
 ```bash
-# Install dependencies
+# 1. Install all dependencies
 npm install
 
-# Run the local development server
+# 2. Run the local development server
 npm run dev
 
-# Build for production
+# 3. Build for production (Output verified strictly optimized)
 npm run build
 ```
 
-*Built with Next.js, React, Tailwind CSS v4, Zustand, and Framer Motion.*
+<div align="center" style="margin-top: 40px; font-family: 'Söhne', 'Inter', sans-serif; font-size: 0.9rem; color: #666;">
+  <i>Engineered with Next.js, React, Tailwind CSS v4, Zustand, and Framer Motion.</i>
+</div>
